@@ -1,20 +1,21 @@
 {
-  "node_modules\\next\\dist\\client\\components\\react-dev-overlay\\internal\\helpers\\use-websocket.js -> @vercel/turbopack-ecmascript-runtime/browser/dev/hmr-client/hmr-client.ts": {
-    "id": "node_modules\\next\\dist\\client\\components\\react-dev-overlay\\internal\\helpers\\use-websocket.js -> @vercel/turbopack-ecmascript-runtime/browser/dev/hmr-client/hmr-client.ts",
+  "node_modules/jspdf/dist/jspdf.es.min.js -> canvg": {
+    "id": 69300,
     "files": [
-      "static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+      "static/chunks/bc98253f.63ca06ab087b2181.js",
+      "static/chunks/839.e04a294a99747924.js"
     ]
   },
-  "node_modules\\next\\dist\\client\\index.js -> ../pages/_app": {
-    "id": "node_modules\\next\\dist\\client\\index.js -> ../pages/_app",
+  "node_modules/jspdf/dist/jspdf.es.min.js -> dompurify": {
+    "id": 33756,
     "files": [
-      "static/chunks/node_modules_next_dist_pages__app_js.js"
+      "static/chunks/756.efbdadc1912ecac4.js"
     ]
   },
-  "node_modules\\next\\dist\\client\\index.js -> ../pages/_error": {
-    "id": "node_modules\\next\\dist\\client\\index.js -> ../pages/_error",
+  "node_modules/jspdf/dist/jspdf.es.min.js -> html2canvas": {
+    "id": 40078,
     "files": [
-      "static/chunks/node_modules_next_dist_pages__error_js.js"
+      "static/chunks/ad2866b8.f1442ee25fd052ff.js"
     ]
   }
 }

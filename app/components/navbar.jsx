@@ -16,7 +16,7 @@ const Navbar = () => {
 			{/* Center Section */}
 			<div className="flex items-center space-x-2">
 				<div className="text-black rounded-full w-6 h-6 flex items-center justify-center">
-					<img src={logo} alt="PrepMate AI logo" />
+					{/* <img src={logo} alt="PrepMate AI logo" /> */}
 				</div>
 				<span className="text-2xl font-[manrope]">PrepMate AI</span>
 			</div>

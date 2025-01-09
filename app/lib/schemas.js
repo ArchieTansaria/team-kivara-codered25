@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+// Define the schema for a single question
 export const questionSchema = z.object({
   question: z.string(),
   options: z
@@ -15,4 +16,8 @@ export const questionSchema = z.object({
     ),
 });
 
-export const questionsSchema = z.array(questionSchema).length(4);
+// Define the type for a single question (not necessary in JS, but useful for documentation)
+export const Question = questionSchema;
+
+// Define the schema for an array of 10 questions
+export const questionsSchema = z.array(questionSchema).length(10);

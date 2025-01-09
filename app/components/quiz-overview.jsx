@@ -1,9 +1,40 @@
 import { Check, X } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { ScrollArea } from "../components/ui/scroll-area";
-
+import { jsPDF } from "jspdf";
 export default function QuizReview({ questions, userAnswers }) {
   const answerLabels = ["A", "B", "C", "D"];
+  alert("hiiis")
+  const pdf = new jsPDF();
+  let text = "Questions\n";
+  questions.forEach((element, index) => {
+    text += `${index + 1}. ${element.question}\n`;
+    element.options.forEach((option, i) => {
+      text += `    ${String.fromCharCode(97 + i)}. ${option}\n`; // a, b, c, etc.
+    });
+    text += "\n"; // Add a newline between questions
+  });
+  
+  // Add the text to the PDF
+  const margin = 10; // Left margin
+  const lineHeight = 10; // Line height
+  const pageHeight = pdf.internal.pageSize.height - margin;
+  
+  // Split text into lines that fit the page width
+  const lines = pdf.splitTextToSize(text, pdf.internal.pageSize.width - margin * 2);
+  let cursorY = margin;
+  
+  lines.forEach((line) => {
+    if (cursorY + lineHeight > pageHeight) {
+      pdf.addPage(); // Add a new page if the current one is full
+      cursorY = margin;
+    }
+    pdf.text(line, margin, cursorY);
+    cursorY += lineHeight;
+  });
+  
+  // Save the PDF
+  pdf.save("sample.pdf");
 
   return (
     <Card className="w-full">

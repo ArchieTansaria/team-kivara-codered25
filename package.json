@@ -1,6 +1,18 @@
 {
   "name": "ai-sdk-preview-pdf-support-main",
   "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/ArchieTansaria/team-kivara-codered25#readme",
+  "bugs": {
+    "url": "https://github.com/ArchieTansaria/team-kivara-codered25/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArchieTansaria/team-kivara-codered25.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
   "main": "tailwind.config.js",
   "directories": {
     "lib": "lib"
@@ -11,9 +23,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "@ai-sdk/google": "^1.0.13",
     "@ai-sdk/openai": "^1.0.15",
@@ -25,6 +34,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.16.1",
+    "jspdf": "^2.5.2",
     "lucide-react": "^0.469.0",
     "next": "^15.1.4",
     "next-themes": "^0.4.4",

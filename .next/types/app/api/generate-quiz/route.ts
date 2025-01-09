@@ -1,4 +1,4 @@
-// File: D:\Archie\team-kivara-codered25\app\api\generate-quiz\route.js
+// File: /Users/aryapathak/coderedfinal/team-kivara-codered25/app/api/generate-quiz/route.js
 import * as entry from '../../../../../app/api/generate-quiz/route.js'
 import type { NextRequest } from 'next/server.js'
 

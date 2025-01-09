@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { experimental_useObject } from "ai/react";
-import { questionsSchema } from "../lib/schemas";
+import { questionsSchema } from "/Users/aryapathak/coderedfinal/team-kivara-codered25/lib/schemas";
 
 import { toast } from "sonner";
 import { FileUp, Plus, Loader2 } from "lucide-react";
@@ -62,12 +62,12 @@ export default function ChatWithFiles() {
 		const selectedFiles = Array.from(e.target.files || []);
 		const validFiles = selectedFiles.filter(
 			(file) =>
-				file.type === "application/pdf" && file.size <= 5 * 1024 * 1024
+				file.type === "application/pdf" && file.size <= 10 * 1024 * 1024
 		);
 		console.log(validFiles);
 
 		if (validFiles.length !== selectedFiles.length) {
-			toast.error("Only PDF files under 5MB are allowed.");
+			toast.error("Only PDF files under 10MB are allowed.");
 		}
 
 		setFiles(validFiles);
@@ -101,9 +101,9 @@ export default function ChatWithFiles() {
 		setQuestions([]);
 	};
 
-	const progress = partialQuestions ? (partialQuestions.length / 4) * 100 : 0;
+	const progress = partialQuestions ? (partialQuestions.length / 10) * 100 : 0;
 
-	if (questions.length === 4) {
+	if (questions.length === 10) {
 		return (
 			<Quiz
 				title={title ?? "Quiz"}

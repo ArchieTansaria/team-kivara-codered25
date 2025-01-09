@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import { experimental_useObject } from "ai/react";
 import { questionsSchema } from "../../lib/schemas";
@@ -21,12 +22,10 @@ import { Link } from "../components/ui/link";
 import NextLink from "next/link";
 import { generateQuizTitle } from "./actions";
 import { AnimatePresence, motion } from "framer-motion";
-import { VercelIcon, GitIcon } from "../components/icons";
-import { div } from "framer-motion/client";
 
 export default function ChatWithFiles() {
-	const [files, setFiles] = useState([]); // No types here
-	const [questions, setQuestions] = useState([]); // No types here
+	const [files, setFiles] = useState([]);
+	const [questions, setQuestions] = useState([]);
 	const [isDragging, setIsDragging] = useState(false);
 	const [title, setTitle] = useState("");
 
@@ -62,12 +61,19 @@ export default function ChatWithFiles() {
 		const selectedFiles = Array.from(e.target.files || []);
 		const validFiles = selectedFiles.filter(
 			(file) =>
-				file.type === "application/pdf" && file.size <= 10 * 1024 * 1024
+				[
+					"application/pdf",
+					"image/jpeg",
+					"image/png",
+					"audio/mpeg",
+					"audio/wav",
+				].includes(file.type) && file.size <= 10 * 1024 * 1024
 		);
-		console.log(validFiles);
 
 		if (validFiles.length !== selectedFiles.length) {
-			toast.error("Only PDF files under 10MB are allowed.");
+			toast.error(
+				"Only PDFs, JPGs, PNGs, MP3s, or WAVs under 10MB are allowed."
+			);
 		}
 
 		setFiles(validFiles);
@@ -96,7 +102,7 @@ export default function ChatWithFiles() {
 		setTitle(generatedTitle);
 	};
 
-	const clearPDF = () => {
+	const clearFiles = () => {
 		setFiles([]);
 		setQuestions([]);
 	};
@@ -110,7 +116,7 @@ export default function ChatWithFiles() {
 			<Quiz
 				title={title ?? "Quiz"}
 				questions={questions}
-				clearPDF={clearPDF}
+				clearPDF={clearFiles}
 			/>
 		);
 	}
@@ -119,7 +125,7 @@ export default function ChatWithFiles() {
 		<div>
 			<Navbar />
 			<div
-				className=" min-h-[100dvh] w-full pt-36 flex justify-center"
+				className="min-h-[100dvh] w-full pt-36 flex justify-center"
 				onDragOver={(e) => {
 					e.preventDefault();
 					setIsDragging(true);
@@ -130,7 +136,6 @@ export default function ChatWithFiles() {
 				onDrop={(e) => {
 					e.preventDefault();
 					setIsDragging(false);
-					console.log(e.dataTransfer.files);
 					handleFileChange({
 						target: { files: e.dataTransfer.files },
 					});
@@ -146,30 +151,20 @@ export default function ChatWithFiles() {
 						>
 							<div>Drag and drop files here</div>
 							<div className="text-sm dark:text-zinc-400 text-zinc-500">
-								{"(PDFs only)"}
+								{"(PDFs, JPGs, PNGs, MP3s, or WAVs only)"}
 							</div>
 						</motion.div>
 					)}
 				</AnimatePresence>
 				<Card className="w-full max-w-md h-full border-0 sm:border sm:h-fit mt-12">
 					<CardHeader className="text-center space-y-6">
-						<div className="mx-auto flex items-center justify-center space-x-2 text-muted-foreground">
-							<div className="rounded-full bg-primary/10 p-2">
-								<FileUp className="h-6 w-6" />
-							</div>
-							<Plus className="h-4 w-4" />
-							<div className="rounded-full bg-primary/10 p-2">
-								<Loader2 className="h-6 w-6" />
-							</div>
-						</div>
 						<div className="space-y-2">
 							<CardTitle className="text-2xl font-bold">
-								Convert PDF To Quiz
+								Convert File To Quiz
 							</CardTitle>
 							<CardDescription className="text-base">
-								Upload a PDF to transform it into an engaging
-								interactive quiz, powered by advanced AI
-								capabilities.
+								Upload a PDF, JPG, PNG, or audio file to
+								transform it into an engaging interactive quiz.
 							</CardDescription>
 						</div>
 					</CardHeader>
@@ -184,7 +179,7 @@ export default function ChatWithFiles() {
 								<input
 									type="file"
 									onChange={handleFileChange}
-									accept="application/pdf"
+									accept="application/pdf,image/jpeg,image/png,audio/mpeg,audio/wav"
 									className="absolute inset-0 opacity-0 cursor-pointer"
 								/>
 								<FileUp className="h-8 w-8 mb-2 text-muted-foreground" />
@@ -194,10 +189,7 @@ export default function ChatWithFiles() {
 											{files[0].name}
 										</span>
 									) : (
-										<span>
-											Drop your PDF here or click to
-											browse.
-										</span>
+										"Drop your PDF, JPG, PNG, or audio file here or click to browse."
 									)}
 								</p>
 							</div>
@@ -225,24 +217,6 @@ export default function ChatWithFiles() {
 									<span>{Math.round(progress)}%</span>
 								</div>
 								<Progress value={progress} className="h-2" />
-							</div>
-							<div className="w-full space-y-2">
-								<div className="grid grid-cols-6 sm:grid-cols-4 items-center space-x-2 text-sm">
-									<div
-										className={`h-2 w-2 rounded-full ${
-											isLoading
-												? "bg-yellow-500/50 animate-pulse"
-												: "bg-muted"
-										}`}
-									/>
-									<span className="text-muted-foreground text-center col-span-4 sm:col-span-2">
-										{partialQuestions
-											? `Generating question ${
-													partialQuestions.length + 1
-											  } of 10`
-											: "Analyzing PDF content"}
-									</span>
-								</div>
 							</div>
 						</CardFooter>
 					)}

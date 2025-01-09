@@ -1,0 +1,5 @@
+{
+  "/api/generate-quiz/route": "app/api/generate-quiz/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/home/page": "app/home/page.js"
+}

@@ -1,4 +1,4 @@
-// File: C:\Users\Vinay\Downloads\converted_files\ai-sdk-preview-pdf-support-main\app\home\page.jsx
+// File: D:\Archie\team-kivara-codered25\app\home\page.jsx
 import * as entry from '../../../../app/home/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

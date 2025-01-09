@@ -11,11 +11,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/home/page.js"
     ],
-    "/api/generate-quiz/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/generate-quiz/route.js"
-    ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",

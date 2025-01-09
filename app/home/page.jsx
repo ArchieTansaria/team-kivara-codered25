@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { experimental_useObject } from "ai/react";
-import { questionsSchema } from "/Users/aryapathak/coderedfinal/team-kivara-codered25/lib/schemas";
+import { questionsSchema } from "../../lib/schemas";
 
 import { toast } from "sonner";
 import { FileUp, Plus, Loader2 } from "lucide-react";
@@ -101,7 +101,9 @@ export default function ChatWithFiles() {
 		setQuestions([]);
 	};
 
-	const progress = partialQuestions ? (partialQuestions.length / 10) * 100 : 0;
+	const progress = partialQuestions
+		? (partialQuestions.length / 10) * 100
+		: 0;
 
 	if (questions.length === 10) {
 		return (
@@ -237,7 +239,7 @@ export default function ChatWithFiles() {
 										{partialQuestions
 											? `Generating question ${
 													partialQuestions.length + 1
-											  } of 4`
+											  } of 10`
 											: "Analyzing PDF content"}
 									</span>
 								</div>

@@ -1,6 +1,10 @@
-import logo from "../../assets/logo.png";
+"use client";
+
+import { useRouter } from "next/navigation";
+// import logo from "/assets/logo.png";
 
 const Navbar = () => {
+	const router = useRouter();
 	return (
 		<nav className="fixed top-0 left-0 w-full z-50 bg-black text-white px-10 py-6 flex justify-between items-center border-b border-gray-800">
 			{/* Left Section */}
@@ -15,10 +19,19 @@ const Navbar = () => {
 
 			{/* Center Section */}
 			<div className="flex items-center space-x-2">
-				<div className="text-black rounded-full w-6 h-6 flex items-center justify-center">
-					{/* <img src={logo} alt="PrepMate AI logo" /> */}
+				<div className="text-black cursor-pointer rounded-full w-6 h-6 flex items-center justify-center">
+					<img
+						src="/assets/logo.png"
+						alt="PrepMate AI logo"
+						onClick={() => router.push("/")}
+					/>
 				</div>
-				<span className="text-2xl font-[manrope]">PrepMate AI</span>
+				<span
+					className="text-2xl font-[manrope] cursor-pointer"
+					onClick={() => router.push("/")}
+				>
+					PrepMate AI
+				</span>
 			</div>
 
 			{/* Right Section */}
@@ -30,7 +43,10 @@ const Navbar = () => {
 				<span className="hover:text-gray-400 cursor-pointer">
 					Buy Premium
 				</span>
-				<button className="bg-white text-black font-[poppins] font-medium text-sm px-4 py-2 rounded-full hover:shadow-md hover:shadow-lg hover:scale-105 transition">
+				<button
+					className="bg-white text-black font-[poppins] font-medium text-sm px-4 py-2 rounded-full hover:shadow-md hover:shadow-lg hover:scale-105 transition"
+					onClick={() => router.push("/signup")}
+				>
 					Get Started
 				</button>
 			</div>

@@ -1,4 +1,4 @@
-// File: /Users/aryapathak/coderedfinal/team-kivara-codered25/app/home/layout.jsx
+// File: C:\Users\Vinay\Documents\coded_red\v2\team-kivara-codered25\app\home\layout.jsx
 import * as entry from '../../../../app/home/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

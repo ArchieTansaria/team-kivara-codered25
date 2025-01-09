@@ -1,5 +1,4 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/home/page": "app/home/page.js",
-  "/api/generate-quiz/route": "app/api/generate-quiz/route.js"
+  "/api/generate-quiz/route": "app/api/generate-quiz/route.js",
+  "/home/page": "app/home/page.js"
 }

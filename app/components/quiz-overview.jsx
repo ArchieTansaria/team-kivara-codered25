@@ -2,9 +2,9 @@ import { Check, X } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { ScrollArea } from "../components/ui/scroll-area";
 import { jsPDF } from "jspdf";
+
 export default function QuizReview({ questions, userAnswers }) {
   const answerLabels = ["A", "B", "C", "D"];
-  alert("hiiis")
   const pdf = new jsPDF();
   let text = "Questions\n";
   questions.forEach((element, index) => {

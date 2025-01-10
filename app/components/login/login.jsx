@@ -1,4 +1,9 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+
 const LoginPage = () => {
+	const router = useRouter();
 	return (
 		<div className="min-h-screen flex mt-10 font-[manrope]">
 			{/* Left Section */}
@@ -21,7 +26,10 @@ const LoginPage = () => {
 			{/* Right Section */}
 			<div className="w-1/2 bg-white flex items-center justify-center p-10">
 				<div className="max-w-md w-full">
-					<h1 className="text-3xl font-semibold mb-4">
+					<h1
+						className="text-3xl font-semibold mb-4"
+						onClick={() => router.push("/login")}
+					>
 						Sign in your account
 					</h1>
 					<p className="text-sm text-gray-600 mb-6">
@@ -70,6 +78,7 @@ const LoginPage = () => {
 						<button
 							type="submit"
 							className="w-full bg-black font-[poppins] text-white py-2 px-4 rounded-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
+							onClick={() => router.push("/home")}
 						>
 							Sign in with Email
 						</button>
@@ -91,7 +100,11 @@ const LoginPage = () => {
 
 					<p className="mt-6 text-center text-sm text-gray-500">
 						Don&apos;t have an account?{" "}
-						<a href="#" className="text-black hover:underline">
+						<a
+							href="#"
+							className="text-black hover:underline"
+							onClick={() => router.push("/signup")}
+						>
 							Sign up
 						</a>
 					</p>

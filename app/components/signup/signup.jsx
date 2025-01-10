@@ -1,4 +1,10 @@
+"use client";
+
+// import { log } from "console";
+import { useRouter } from "next/navigation";
+
 const SignupPage = () => {
+	const router = useRouter();
 	return (
 		<div className="min-h-screen flex mt-10 font-[manrope]">
 			{/* Left Section */}
@@ -70,6 +76,9 @@ const SignupPage = () => {
 						<button
 							type="submit"
 							className="w-full bg-black font-[poppins] text-white py-2 px-4 rounded-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
+							onClick={() => {
+								router.push("/home");
+							}}
 						>
 							Sign up with Email
 						</button>
@@ -91,7 +100,11 @@ const SignupPage = () => {
 
 					<p className="mt-6 text-center text-sm text-gray-500">
 						Already have an account?{" "}
-						<a href="#" className="text-black hover:underline">
+						<a
+							href="#"
+							className="text-black hover:underline"
+							onClick={() => router.push("/login")}
+						>
 							Sign in
 						</a>
 					</p>

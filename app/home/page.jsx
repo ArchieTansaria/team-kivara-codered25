@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { experimental_useObject } from "ai/react";
 import { questionsSchema } from "../../lib/schemas";
 
@@ -121,11 +121,40 @@ export default function ChatWithFiles() {
 		);
 	}
 
+	const words = ["PDF", "Image", "Audio", "Video"];
+	const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+		}, 2000); // Change word every 2 seconds
+
+		return () => clearInterval(interval);
+	}, [words.length]);
+
 	return (
 		<div>
 			<Navbar />
+			<div className="font-[poppins] flex items-center justify-center mt-36 pd-4 bg-black">
+				<h1 className="text-2xl md:text-4xl font-bold text-gray-300">
+					Hi 👾 This is{" "}
+					<span className="text-white">PrepMate AI</span>
+					<br />
+					Convert from{" "}
+					<span
+						className="font-[manrope] inline-block align-bottom text-5xl whitespace-nowrap text-slate-500 [#ffe599] font-bold transition-transform duration-500 ease-in-out"
+						style={{
+							display: "inline-block",
+							width: "6ch", // Adjust to fit the longest word in the list
+							textAlign: "left",
+						}}
+					>
+						{words[currentWordIndex]}
+					</span>
+				</h1>
+			</div>
 			<div
-				className="min-h-[100dvh] w-full pt-36 flex justify-center"
+				className="min-h-[100dvh] w-full flex justify-center"
 				onDragOver={(e) => {
 					e.preventDefault();
 					setIsDragging(true);

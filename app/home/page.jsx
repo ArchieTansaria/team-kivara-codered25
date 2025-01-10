@@ -136,7 +136,7 @@ export default function ChatWithFiles() {
 	return (
 		<div>
 			<Navbar />
-			<div className="font-[poppins] flex items-center justify-center mt-36 pd-4 bg-black">
+			<div className="font-[poppins] flex items-center justify-center mt-48 pd-4 bg-black">
 				<h1 className="text-2xl md:text-4xl font-bold text-gray-300">
 					Hi 👾 This is{" "}
 					<span className="text-white">PrepMate AI</span>
@@ -156,9 +156,6 @@ export default function ChatWithFiles() {
 			</div>
 			<div
 				className="min-h-[100dvh] w-full flex justify-center"
-			
-			<div
-				className="min-h-[100dvh] w-full pt-36 flex justify-center"
 				onDragOver={(e) => {
 					e.preventDefault();
 					setIsDragging(true);

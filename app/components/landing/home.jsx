@@ -45,7 +45,7 @@ const Home = () => {
 					<div className="flex justify-center space-x-4">
 						<button
 							className="px-6 py-3 bg-white text-black font-[Poppins] font-semibold rounded-full focus:outline-none hover:shadow-lg hover:scale-105 transition"
-							onClick={() => router.push("/home")}
+							onClick={() => router.push("/personalizedfeed")}
 						>
 							Start Generating🚀
 						</button>

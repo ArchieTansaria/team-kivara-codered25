@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { FileUp, Plus, Loader2 } from "lucide-react";
 import { Button } from "../components/ui/button";
 import Navbar from "../components/navbar";
+
 import {
 	Card,
 	CardContent,
@@ -124,6 +125,7 @@ export default function ChatWithFiles() {
 	return (
 		<div>
 			<Navbar />
+			
 			<div
 				className="min-h-[100dvh] w-full pt-36 flex justify-center"
 				onDragOver={(e) => {

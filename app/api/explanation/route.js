@@ -1,5 +1,5 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-const genAI = new GoogleGenerativeAI("AIzaSyB8lAQnAoqdNON7RvNPA9MLmZBafOTlNEQ");
+const genAI = new GoogleGenerativeAI("###");
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 export async function POST(req) {
 	try {
